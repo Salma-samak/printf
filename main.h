@@ -8,16 +8,16 @@
 #define BUFFER_SIZE 1024
 
 /**
- * struct formats - Struct operators
+ * struct specifier - Struct operators
  *
  * @specifier: Char
- * @specifiers: The function associated
+ * @_specifiers: The function associated
  */
 
 typedef struct specifier
 {
 	char specifier;
-	void (*specifiers)(char *buffer, int *index, va_list args);
+	void (*_specifiers)(char *buffer, int *index, va_list args);
 } specifier_t;
 
 int _printf(const char *format, ...);
