@@ -12,10 +12,10 @@ int _printf(const char *format, ...)
 	int i, j, valid_format;
 	va_list args;
 
-	specifier specifiers[] = {
-		{"c", print_c}, {"d", print_int},
-		{"f", print_double},{"s", print_str},
-		{"b", print_binary}, {"%", print_percent}
+	Specifier specifiers[] = {
+		{'c', print_c}, {'d', print_int},
+		{'f', print_double}, {'s', print_str},
+		{'b', print_binary}, {'%', print_percent}
 	};
 	if (format == NULL)
 		return (-1);
@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				break;
 			valid_format = 0;
-			for (j = 0; j < sizeof(specifiers) / sizeof(specifiers[0]); j++)
+			for (int j = 0; j < sizeof(specifiers) / sizeof(specifiers[0]); j++)
 			{
 				if (*format == specifiers[j].specifier)
 				{

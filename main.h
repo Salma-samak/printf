@@ -18,7 +18,7 @@ typedef struct
 {
 	char specifier;
 	void (*specifiers)(char *buffer, int *index, va_list args);
-} specifier;
+} Specifier;
 
 int _printf(const char *format, ...);
 
