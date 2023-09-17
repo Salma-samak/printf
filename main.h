@@ -14,11 +14,11 @@
  * @_specifiers: The function associated
  */
 
-typedef struct specifier
+typedef struct
 {
 	char specifier;
-	void (*_specifiers)(char *buffer, int *index, va_list args);
-} specifier_t;
+	void (*specifiers)(char *buffer, int *index, va_list args);
+} specifier;
 
 int _printf(const char *format, ...);
 

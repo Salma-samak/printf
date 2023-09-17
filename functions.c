@@ -83,9 +83,9 @@ void print_int(char *buffer, int *index, va_list args)
 
 void print_double(char *buffer, int *index, va_list args)
 {
-	int i = va_arg(args, double);
+	double i = va_arg(args, double);
 
-	*index = snprintf(buffer + *inex, BUFFER_SIZE - *index, "%.2f", i);
+	*index = snprintf(buffer + *index, BUFFER_SIZE - *index, "%.2f", i);
 	if (*index >= BUFFER_SIZE - 1)
 	{
 		buffer[*index] = '\0';

@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int i, j, valid_format;
 	va_list args;
 
-	specifier_t specifiers[] = {
+	specifier specifiers[] = {
 		{"c", print_c}, {"d", print_int},
 		{"f", print_double},{"s", print_str},
 		{"b", print_binary}, {"%", print_percent}
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 				if (*format == specifiers[j].specifier)
 				{
 					valid_format = 1;
-					specifiers[j]._specifiers(buffer, &i, args);
+					specifiers[j].specifiers(buffer, &i, args);
 					break;
 				}
 			}
