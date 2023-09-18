@@ -115,4 +115,4 @@ void print_percent(char *buffer, int *index, va_list args)
 		buffer[(*index)++] = '%';
 	}
 }
-}
+
