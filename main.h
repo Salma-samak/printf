@@ -1,4 +1,5 @@
 #ifndef main_h
+
 #define main_h
 
 #include <stdarg.h>
@@ -17,8 +18,8 @@
 typedef struct
 {
 	char specifier;
-	void (*specifiers)(char *buffer, int *index, va_list args);
-} Specifier;
+	void (*handler)(char *buffer, int *index, va_list args);
+} PrintSpecifier;
 
 int _printf(const char *format, ...);
 
