@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 		}
 		if (!format)
 			break;
-		if (format[i] = '%')
+		if (format[i] == '%')
 		{
 			i++;
 			for (k = 0; specifiers[k].specifier; k++)
