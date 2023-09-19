@@ -16,11 +16,11 @@ int _printf(const char *format, ...)
 	PrintSpecifier specifiers[] = {
 		{'c', print_c}, {'d', print_int},
 		{'s', print_str}, {'f', print_double},
-		{'%', print_percent}, {'b', print_binary}, {NULL, NULL}
+		{'%', print_percent}, {'b', print_binary}
 	};
 	if (!format)
 		return (-1);
-	va_list(args, format);
+	va_start(args, format);
 	while (format[i])
 	{
 		while (format[i] != '%' && format[i])

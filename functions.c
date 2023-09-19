@@ -101,7 +101,7 @@ void print_double(char *buffer, int *index, va_list args)
  * @args: va_list passed to function
  */
 
-void print_percent(char *buffer, int *index, va_list args)
+void print_percent(char *buffer, int *index, __attribute__((unused))va_list args)
 {
 	if (*index < BUFFER_SIZE - 1)
 	{
@@ -115,4 +115,3 @@ void print_percent(char *buffer, int *index, va_list args)
 		buffer[(*index)++] = '%';
 	}
 }
-
