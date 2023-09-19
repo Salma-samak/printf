@@ -36,6 +36,8 @@ void print_str(char *buffer, int *index, va_list args)
 	char *str = va_arg(args, char *);
 	int length, i;
 
+	if (str == NULL)
+		str = "(NULL)";
 	for (length = 0; str[length] != '\0'; length++)
 		;
 	for (i = 0; i < length; i++)
