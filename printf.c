@@ -9,46 +9,49 @@
 int _printf(const char *format, ...)
 {
 	char buffer[BUFFER_SIZE];
-	int i = 0, valid;
+	int i = 0, j = 0, k;
+	int *index = &j;
 	va_list args;
 
 	PrintSpecifier specifiers[] = {
 		{'c', print_c}, {'d', print_int},
 		{'s', print_str}, {'f', print_double},
-		{'%', print_percent}, {'b', print_binary}
+		{'%', print_percent}, {'b', print_binary}, {NULL, NULL}
 	};
-	if (!format || i >= BUFFER_SIZE)
+	if (!format)
 		return (-1);
-	va_start(args, format);
-	while (*format)
+	va_list(args, format);
+	while (format[i])
 	{
-		if (*format != '%')
-			buffer[i++] = *format++;
-		else
+		while (format[i] != '%' && format[i])
 		{
-			format++;
-			if (*format == '\0')
-				break;
-			valid = 0;
-			for (int j = 0; j < sizeof(specifiers) / sizeof(specifiers[0]); j++)
+			if (*index >= BUFFER_SIZE - 1)
 			{
-				if (*format == specifiers[j].specifier)
+				buffer[*index] = '\0';
+				puts(buffer);
+				*index = 0;
+			}
+			buffer[(*index)++] = format[i];
+			i++;
+		}
+		if (!format)
+			break;
+		if (format[i] = '%')
+		{
+			i++;
+			for (k = 0; specifiers[k].specifier; k++)
+			{
+				if (format[i] == specifiers[k].specifier)
 				{
-					valid = 1;
-					specifiers[j].handler(buffer, &i, args);
+					specifiers[k].handler(buffer, index, args);
 					break;
 				}
 			}
-			if (!valid)
-				buffer[i++] = '%';
-			format++;
 		}
-	}
-	if (i > 0)
-	{
-		buffer[i] = '\0';
-		puts(buffer);
+		i++;
 	}
 	va_end(args);
-	return (i);
+	buffer[*index] = '\0';
+	puts(buffer);
+	return (*index);
 }
