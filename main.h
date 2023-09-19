@@ -22,6 +22,7 @@ typedef struct
 } PrintSpecifier;
 
 int _printf(const char *format, ...);
+void reset_buffer(char *buffer, int *index);
 
 void print_c(char *buffer, int *index, va_list args);
 void print_str(char *buffer, int *index, va_list args);
