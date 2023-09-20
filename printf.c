@@ -13,9 +13,10 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	PrintSpecifier specifiers[] = {
-		{'c', print_c}, {'d', print_int},
-		{'s', print_str}, {'f', print_double},
-		{'%', print_percent}, {'b', print_binary},
+		{'c', print_char}/*, {'d', print_double}, {'s', print_str}, {'i', print_int},
+		{'u', print_unint}, {'%', print_percent}, {'x', print_hex}, {'X', print_HEX},
+		{'o', print_octa}, {'b', print_binary}, {'p', print_point}, {'r', print_rot},
+		{'R', print_ROT}, {'\0', NULL}*/
 	};
 	if (!format)
 		return (-1);
